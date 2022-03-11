@@ -2,6 +2,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import android.widget.ArrayAdapter;
 
+import androidx.core.widget.TextViewCompat;
+
 import com.example.simpleparadox.listycity.City;
 import com.example.simpleparadox.listycity.CustomList;
 
@@ -34,5 +36,13 @@ public class CustomListTest {
         list.deleteCity(halifax);
 
         assertEquals(listSize, list.getCount());
+    }
+
+    @Test
+    public void testCountCities() {
+        assertEquals(list.getCount(), list.countCities());
+        City halifax = new City("Halifax", "NS");
+        list.addCity(halifax);
+        assertEquals(list.getCount(), list.countCities());
     }
 }
